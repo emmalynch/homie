@@ -1,13 +1,20 @@
+
+import config from "config";
 import express from "express";
+import createLogger from 'logging';
 
+import { getTrainInformation } from "./clients/irishrail";
+
+const logger = createLogger("homie");
 const app = express();
-const port = 3000;
+const port = config.get("port");
+const defaultStation = config.get("irishrail.station");
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/traininfo/:station?", async (req, res) => {
+  const result = await getTrainInformation(req.params.station ?? defaultStation);
+  res.send(result);
 });
 
 app.listen( port, () => {
-    // tslint:disable-next-line:no-console
-    console.log( `server started at http://localhost:${ port }` );
+    logger.info( `server started at http://localhost:${ port }` );
 } );
