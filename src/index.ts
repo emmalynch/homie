@@ -4,6 +4,7 @@ import express from "express";
 import createLogger from 'logging';
 
 import { getTrainInformation } from "./clients/irishrail";
+import { getWeatherForecast } from "./clients/meteireann";
 
 const logger = createLogger("homie");
 const app = express();
@@ -12,6 +13,11 @@ const defaultStation = config.get("irishrail.station");
 
 app.get("/traininfo/:station?", async (req, res) => {
   const result = await getTrainInformation(req.params.station ?? defaultStation);
+  res.send(result);
+});
+
+app.get("/weather", async (req, res) => {
+  const result = await getWeatherForecast();
   res.send(result);
 });
 

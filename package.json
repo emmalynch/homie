@@ -23,8 +23,8 @@
     "axios": "^0.21.1",
     "config": "^3.3.3",
     "express": "^4.17.1",
-    "fast-xml-parser": "^3.18.0",
-    "logging": "^3.3.0"
+    "logging": "^3.3.0",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",

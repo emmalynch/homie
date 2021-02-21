@@ -1,7 +1,12 @@
 {
     "port": 3000,
     "irishrail": {
-        "station": "Clongriffin",
+        "station": "Dublin Pearse",
         "baseUrl": "http://api.irishrail.ie/realtime/realtime.asmx/"
+    },
+    "meteireann": {
+        "baseUrl": "http://metwdb-openaccess.ichec.ie/metno-wdb2ts/locationforecast",
+        "lat": "53.344250",
+        "long": "-6.262410"
     }
 }
